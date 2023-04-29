@@ -1,3 +1,20 @@
+<?php
+//start  session function
+SESSION_START();
+
+//check session variable set 
+
+if (isset($_SESSION['ses_username'])===false){
+    header("Location: index.php?loggfirst");
+
+} else if (isset($_REQUEST['logout'])===true){
+    session_destroy();
+    header("Location: index.php?logout");
+}
+
+
+?>
+
 <!doctype html>
                         <html>
                             <head>
@@ -13,14 +30,13 @@
     transform: translateY(5rem)
 }
 .cover {
-    background-image: url('images/photo-profile-background.avif');
+    background-image: url('images/cover002.jpg');
     background-size: cover;
     background-repeat: no-repeat
 }
 
 body {
-    background: #654ea3;
-    background: linear-gradient(to right, #e96443, #904e95);
+    background-image: url('images/body002.jpg');
     min-height: 100vh;
     overflow-x: hidden
 }</style>
@@ -32,13 +48,15 @@ body {
         <div class="bg-white shadow rounded overflow-hidden">
             <div class="px-4 pt-0 pb-4 cover">
                 <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img src="images/photo-profile.avif" alt="..." width="150" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit Profile</a>
+                    <div class="profile mr-3"><img src="images/profilepic002.jpg" alt="..." width="150" class="rounded mb-2 img-thumbnail"><a href="?logout" class="btn btn-outline-dark btn-sm btn-block">Sign Out</a>
 
 
                     </div>
                     <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">Ryan Clifford L. Perez</h4>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Marinduque PH
+                        <h4 class="mt-0 mb-0"> <?php echo $_SESSION['ses_fullname']; ?> </h4>
+                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>
+
+                            <?php echo $_SESSION['ses_address']; ?>
                          </p>
                     </div>
                 </div>
@@ -60,9 +78,9 @@ body {
             <div class="px-4 py-3">
                 <h5 class="mb-0">Expertise </h5>
                 <div class="p-4 rounded shadow-sm bg-light">
-                    <p class="font-italic mb-0">Full-stack Web Developer</p>
-                    <p class="font-italic mb-0">Mobile App Developer</p>
-                    <p class="font-italic mb-0">Photographer/Videographer</p>
+                    <p class="font-italic mb-0">Fashion Designer</p>
+                    <p class="font-italic mb-0">Web Developer</p>
+                    <p class="font-italic mb-0">Animator</p>
                 </div>
             </div>
 
@@ -72,10 +90,10 @@ body {
                 </div>
                 <div class="row">
                     
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="images/photo-1.avif" alt="" class="img-fluid rounded shadow-sm"></div>              
-                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="images/photo-2.avif" alt="" class="img-fluid rounded shadow-sm"></div>                
-                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="images/photo-3.avif" alt="" class="img-fluid rounded shadow-sm"></div>
-                    <div class="col-lg-6 pl-lg-1"><img src="images/photo-4.avif" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="images/002.jpg" alt="" class="img-fluid rounded shadow-sm"></div>              
+                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="images/003.jpeg" alt="" class="img-fluid rounded shadow-sm"></div>                
+                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="images/004.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pl-lg-1"><img src="images/005.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
                 </div> 
             </div>
 
